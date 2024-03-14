@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DACBFB52BA3BF3F00133D59 /* physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5DACBFB42BA3BF2A00133D59 /* physics.cpp */; };
 		C1A1B9C12B21093A00E5DEAA /* velocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A1B9B62B21093A00E5DEAA /* velocity.cpp */; };
 		C1A1B9C22B21093A00E5DEAA /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A1B9B72B21093A00E5DEAA /* acceleration.cpp */; };
 		C1A1B9C32B21093A00E5DEAA /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A1B9B92B21093A00E5DEAA /* position.cpp */; };
@@ -28,6 +29,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5DACBFB32BA3BF2A00133D59 /* physics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = physics.h; sourceTree = "<group>"; };
+		5DACBFB42BA3BF2A00133D59 /* physics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = physics.cpp; sourceTree = "<group>"; };
+		5DACBFB62BA3BF7B00133D59 /* testPhysics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testPhysics.h; sourceTree = "<group>"; };
 		C1A1B9B12B21093900E5DEAA /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		C1A1B9B22B21093A00E5DEAA /* testAngle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAngle.h; sourceTree = "<group>"; };
 		C1A1B9B32B21093A00E5DEAA /* position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = position.h; sourceTree = "<group>"; };
@@ -66,9 +70,12 @@
 				C1A1B9BC2B21093A00E5DEAA /* angle.cpp */,
 				C1A1B9B52B21093A00E5DEAA /* angle.h */,
 				C1A1B9BF2B21093A00E5DEAA /* main.cpp */,
+				5DACBFB42BA3BF2A00133D59 /* physics.cpp */,
+				5DACBFB32BA3BF2A00133D59 /* physics.h */,
 				C1A1B9B92B21093A00E5DEAA /* position.cpp */,
 				C1A1B9B32B21093A00E5DEAA /* position.h */,
 				C1A1B9C02B21093A00E5DEAA /* test.cpp */,
+				5DACBFB62BA3BF7B00133D59 /* testPhysics.h */,
 				C1A1B9B12B21093900E5DEAA /* test.h */,
 				C1A1B9BE2B21093A00E5DEAA /* testAcceleration.h */,
 				C1A1B9B22B21093A00E5DEAA /* testAngle.h */,
@@ -146,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DACBFB52BA3BF3F00133D59 /* physics.cpp in Sources */,
 				C1A1B9C12B21093A00E5DEAA /* velocity.cpp in Sources */,
 				C1A1B9C42B21093A00E5DEAA /* angle.cpp in Sources */,
 				C1A1B9C22B21093A00E5DEAA /* acceleration.cpp in Sources */,
