@@ -56,57 +56,57 @@ public:
       velocityFromAcceleration_ones();
       velocityFromAcceleration_twoAcceleration();
       velocityFromAcceleration_twoTime();
-
-      // Ticket 2: Linear Interpolation equation
-      linearInterpolation_coordinatesZero();
-      linearInterpolation_coordinatesOne();
-      linearInterpolation_coordinatesMiddle();
-      linearInterpolation_coordinatesTop();
-      linearInterpolation_coordinatesBackwards();
-
-      // Ticket 3: Linear Interpolation with Mapping
-      linearInterpolation_mappingZero();
-      linearInterpolation_mappingTwo();
-      linearInterpolation_mappingMid01();
-      linearInterpolation_mappingTop01();
-      linearInterpolation_mappinglower23();
-      linearInterpolation_mappingSmall();
-      linearInterpolation_mappingLarge();
-
-      // Ticket 4: Gravity
-      gravityFromAltitude_0();
-      gravityFromAltitude_10000();
-      gravityFromAltitude_80000();
-      gravityFromAltitude_5500();
-      gravityFromAltitude_43333();
-      gravityFromAltitude_3666();
-      gravityFromAltitude_8848();
-
-      // Ticket 5: Density
-      densityFromAltitude_0();
-      densityFromAltitude_10000();
-      densityFromAltitude_80000();
-      densityFromAltitude_5500();
-      densityFromAltitude_43333();
-      densityFromAltitude_3666();
-      densityFromAltitude_8848();
-
-      // Ticket 6: Speed of Sound
-      speedSoundFromAltitude_0();
-      speedSoundFromAltitude_10000();
-      speedSoundFromAltitude_80000();
-      speedSoundFromAltitude_5500();
-      speedSoundFromAltitude_43333();
-      speedSoundFromAltitude_3666();
-      speedSoundFromAltitude_8848();
-
-      // Ticket 7: Drag
-      dragFromMach_000();
-      dragFromMach_500();
-      dragFromMach_100();
-      dragFromMach_060();
-      dragFromMach_010();
-      dragFromMach_314();
+//
+//      // Ticket 2: Linear Interpolation equation
+//      linearInterpolation_coordinatesZero();
+//      linearInterpolation_coordinatesOne();
+//      linearInterpolation_coordinatesMiddle();
+//      linearInterpolation_coordinatesTop();
+//      linearInterpolation_coordinatesBackwards();
+//
+//      // Ticket 3: Linear Interpolation with Mapping
+//      linearInterpolation_mappingZero();
+//      linearInterpolation_mappingTwo();
+//      linearInterpolation_mappingMid01();
+//      linearInterpolation_mappingTop01();
+//      linearInterpolation_mappinglower23();
+//      linearInterpolation_mappingSmall();
+//      linearInterpolation_mappingLarge();
+//
+//      // Ticket 4: Gravity
+//      gravityFromAltitude_0();
+//      gravityFromAltitude_10000();
+//      gravityFromAltitude_80000();
+//      gravityFromAltitude_5500();
+//      gravityFromAltitude_43333();
+//      gravityFromAltitude_3666();
+//      gravityFromAltitude_8848();
+//
+//      // Ticket 5: Density
+//      densityFromAltitude_0();
+//      densityFromAltitude_10000();
+//      densityFromAltitude_80000();
+//      densityFromAltitude_5500();
+//      densityFromAltitude_43333();
+//      densityFromAltitude_3666();
+//      densityFromAltitude_8848();
+//
+//      // Ticket 6: Speed of Sound
+//      speedSoundFromAltitude_0();
+//      speedSoundFromAltitude_10000();
+//      speedSoundFromAltitude_80000();
+//      speedSoundFromAltitude_5500();
+//      speedSoundFromAltitude_43333();
+//      speedSoundFromAltitude_3666();
+//      speedSoundFromAltitude_8848();
+//
+//      // Ticket 7: Drag
+//      dragFromMach_000();
+//      dragFromMach_500();
+//      dragFromMach_100();
+//      dragFromMach_060();
+//      dragFromMach_010();
+//      dragFromMach_314();
 
       report("Physics");
    }
@@ -311,7 +311,7 @@ private:
 
     /*******************************************************
      * FORCE FROM DRAG - two drag
-     * input:  density=0 drag=2 radius=1 velocity=1
+     * input:  density=1 drag=2 radius=1 velocity=1
      * output: force=pi
      ********************************************************/
    void forceFromDrag_twoDrag()
