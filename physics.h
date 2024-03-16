@@ -68,66 +68,65 @@ inline double velocityFromAcceleration(double acceleration, double time)
 }
 
 /*********************************************************
- * LINEAR INTERPOLATION
- * From a list of domains and ranges, linear interpolate
- *
- *    |        *(d1,r1)
- *    |       /
- *    |      *(d,r)
- *   r|     /
- *    |    *(d0,r0)
- *    |
- *    +-------------
- *           d
- * equation:
- *   (r - r0) / (d - d0) = (r1 - r0) / (d1 - d0)
- * Thus:
- *   r  = r0 + (r1 - r0) (d - d0) / (d1 - d0)
- *********************************************************/
+* LINEAR INTERPOLATION
+* From a list of domains and ranges, linear interpolate
+*
+*    |        *(d1,r1)
+*    |       /
+*    |      *(d,r)
+*   r|     /
+*    |    *(d0,r0)
+*    |
+*    +-------------
+*           d
+* equation:
+*   (r - r0) / (d - d0) = (r1 - r0) / (d1 - d0)
+* Thus:
+*   r  = r0 + (r1 - r0) (d - d0) / (d1 - d0)
+*********************************************************/
 inline double linearInterpolation(double d0, double r0,
-                                  double d1, double r1,
-                                  double d)
+   double d1, double r1,
+   double d)
 {
-   return -99.9;
+   return r0 + (r1 - r0) * (d - d0) / (d1 - d0);
 }
-
+ 
 /*********************************************************
- * MAPPING
- * A simple structure to represent the domain and the range.
- * We use this for linear interpolation
- *********************************************************/
+* MAPPING
+* A simple structure to represent the domain and the range.
+* We use this for linear interpolation
+*********************************************************/
 struct Mapping
 {
    double domain;
    double range;
 };
-
+ 
 /*********************************************************
- * LINEAR INTERPOLATION
- * From a list of domains and ranges, linear interpolate
- *********************************************************/
+* LINEAR INTERPOLATION
+* From a list of domains and ranges, linear interpolate
+*********************************************************/
 double linearInterpolation(const Mapping mapping[], int numMapping, double domain);
-
+ 
 /*********************************************************
- * GRAVITY FROM ALTITUDE
- * Determine gravity coefficient based on the altitude
- *********************************************************/
+* GRAVITY FROM ALTITUDE
+* Determine gravity coefficient based on the altitude
+*********************************************************/
 double gravityFromAltitude(double altitude);
-
+ 
 /*********************************************************
- * DENSITY FROM ALTITUDE
- * Determine the density of air based on the altitude
- *********************************************************/
+* DENSITY FROM ALTITUDE
+* Determine the density of air based on the altitude
+*********************************************************/
 double densityFromAltitude(double altitude);
-
+ 
 /*********************************************************
- * SPEED OF SOUND FROM ALTITUDE
- ********************************************************/
+* SPEED OF SOUND FROM ALTITUDE
+********************************************************/
 double speedSoundFromAltitude(double altitude);
-
+ 
 /*********************************************************
- * DRAG FROM MACH
- * Determine the drag coefficient as a function of the speed of sound
- *********************************************************/
+* DRAG FROM MACH
+* Determine the drag coefficient as a function of the speed of sound
+*********************************************************/
 double dragFromMach(double speedMach);
-

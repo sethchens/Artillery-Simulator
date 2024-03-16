@@ -56,31 +56,31 @@ public:
       velocityFromAcceleration_ones();
       velocityFromAcceleration_twoAcceleration();
       velocityFromAcceleration_twoTime();
-//
-//      // Ticket 2: Linear Interpolation equation
-//      linearInterpolation_coordinatesZero();
-//      linearInterpolation_coordinatesOne();
-//      linearInterpolation_coordinatesMiddle();
-//      linearInterpolation_coordinatesTop();
-//      linearInterpolation_coordinatesBackwards();
-//
-//      // Ticket 3: Linear Interpolation with Mapping
-//      linearInterpolation_mappingZero();
-//      linearInterpolation_mappingTwo();
-//      linearInterpolation_mappingMid01();
-//      linearInterpolation_mappingTop01();
-//      linearInterpolation_mappinglower23();
-//      linearInterpolation_mappingSmall();
-//      linearInterpolation_mappingLarge();
-//
-//      // Ticket 4: Gravity
-//      gravityFromAltitude_0();
-//      gravityFromAltitude_10000();
-//      gravityFromAltitude_80000();
-//      gravityFromAltitude_5500();
-//      gravityFromAltitude_43333();
-//      gravityFromAltitude_3666();
-//      gravityFromAltitude_8848();
+
+      // Ticket 2: Linear Interpolation equation
+      linearInterpolation_coordinatesZero();
+      linearInterpolation_coordinatesOne();
+      linearInterpolation_coordinatesMiddle();
+      linearInterpolation_coordinatesTop();
+      linearInterpolation_coordinatesBackwards();
+
+      // Ticket 3: Linear Interpolation with Mapping
+      linearInterpolation_mappingZero();
+      linearInterpolation_mappingTwo();
+      linearInterpolation_mappingMid01();
+      linearInterpolation_mappingTop01();
+      linearInterpolation_mappinglower23();
+      linearInterpolation_mappingSmall();
+      linearInterpolation_mappingLarge();
+
+      // Ticket 4: Gravity
+      gravityFromAltitude_0();
+      gravityFromAltitude_10000();
+      gravityFromAltitude_80000();
+      gravityFromAltitude_55000();
+      gravityFromAltitude_43333();
+      gravityFromAltitude_3666();
+      gravityFromAltitude_8848();
 //
 //      // Ticket 5: Density
 //      densityFromAltitude_0();
@@ -91,16 +91,16 @@ public:
 //      densityFromAltitude_3666();
 //      densityFromAltitude_8848();
 //
-//      // Ticket 6: Speed of Sound
-//      speedSoundFromAltitude_0();
-//      speedSoundFromAltitude_10000();
-//      speedSoundFromAltitude_80000();
-//      speedSoundFromAltitude_5500();
-//      speedSoundFromAltitude_43333();
-//      speedSoundFromAltitude_3666();
-//      speedSoundFromAltitude_8848();
-//
-//      // Ticket 7: Drag
+      // Ticket 6: Speed of Sound
+      speedSoundFromAltitude_0();
+      speedSoundFromAltitude_10000();
+      speedSoundFromAltitude_35142();
+      speedSoundFromAltitude_5500();
+      speedSoundFromAltitude_13333();
+      speedSoundFromAltitude_3666();
+      speedSoundFromAltitude_8848();
+
+      // Ticket 7: Drag
 //      dragFromMach_000();
 //      dragFromMach_500();
 //      dragFromMach_100();
@@ -575,111 +575,198 @@ private:
       assertEquals(velocity, 2.0);
    }  // teardown
 
-
    /*****************************************************************
-    *****************************************************************
-    * LINEAR INTERPOLATION (coordinates version)
-    * From a pair of domain/range values, interpolate
-    *
-    *    |        *(d1,r1)
-    *    |       /
-    *    |      *(d,r)
-    *   r|     /
-    *    |    *(d0,r0)
-    *    |
-    *    +-------------
-    *           d
-    * equation:
-    *   (r - r0) / (d - d0) = (r1 - r0) / (d1 - d0)
-    * Thus
-    *   r  = r0 + (r1 - r0) (d - d0) / (d1 - d0)
-    *
-    * linearInterpolation(double d0, double r0,
-    *                     double d1, double r1,
-    *                     double d)
-    *****************************************************************
-    *****************************************************************/
-
+   *****************************************************************
+   * LINEAR INTERPOLATION (coordinates version)
+   * From a pair of domain/range values, interpolate
+   *
+   *    |        *(d1,r1)
+   *    |       /
+   *    |      *(d,r)
+   *   r|     /
+   *    |    *(d0,r0)
+   *    |
+   *    +-------------
+   *           d
+   * equation:
+   *   (r - r0) / (d - d0) = (r1 - r0) / (d1 - d0)
+   * Thus
+   *   r  = r0 + (r1 - r0) (d - d0) / (d1 - d0)
+   *
+   * linearInterpolation(double d0, double r0,
+   *                     double d1, double r1,
+   *                     double d)
+   *****************************************************************
+   *****************************************************************/
+    
    /*********************************************************
-    * LINEAR INTERPOLATION - coordinate version where (d,r) is (d0,r0)
-    *
-    *    |     8,8 * (d1,r1)
-    *    |        /
-    *    |       /
-    *   r|      /
-    *    | 0,0 * (d0,r0) (d,r)
-    *    +-------------
-    *         d
-    *********************************************************/
+     * LINEAR INTERPOLATION - coordinate version where (d,r) is (d0,r0)
+     *
+     *    |     8,8 * (d1,r1)
+     *    |        /
+     *    |       /
+     *   r|      /
+     *    | 0,0 * (d0,r0) (d,r)
+     *    +-------------
+     *         d
+     *********************************************************/
    void linearInterpolation_coordinatesZero()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+      // setup
+      double d1 = 8.0;
+      double r1 = 8.0;
+      double d0 = 0.0;
+      double r0 = 0.0;
+      double d = 0.0;
+      double result;
+    
+      // exercise
+      result = linearInterpolation(d0, r0, d1, r1, d);
+      // verify
+      assertEquals(d1, 8.0);
+      assertEquals(r1, 8.0);
+      assertEquals(d0, 0.0);
+      assertEquals(r0, 0.0);
+      assertEquals(d, 0.0);
+      assertEquals(result, 0.0);
+   }  // teardown
+    
    /*********************************************************
-    * LINEAR INTERPOLATION - coordinate version where (d,r) is (d1,r1)
-    *
-    *    |     8,8 * (d1,r1) (d,r)
-    *    |        /
-    *    |       /
-    *   r|      /
-    *    | 0,0 * (d0,r0) 
-    *    +-------------
-    *         d
-    *********************************************************/
+   * LINEAR INTERPOLATION - coordinate version where (d,r) is (d1,r1)
+   *
+   *    |     8,8 * (d1,r1) (d,r)
+   *    |        /
+   *    |       /
+   *   r|      /
+   *    | 0,0 * (d0,r0)
+   *    +-------------
+   *         d
+   *********************************************************/
    void linearInterpolation_coordinatesOne()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+      // setup
+      double d1 = 8.0;
+      double r1 = 8.0;
+      double d0 = 0.0;
+      double r0 = 0.0;
+      double d = 8.0;
+      double result;
+    
+      // exercise
+      result = linearInterpolation(d0, r0, d1, r1, d);
+    
+      // verify
+      assertEquals(d1, 8.0);
+      assertEquals(r1, 8.0);
+      assertEquals(d0, 0.0);
+      assertEquals(r0, 0.0);
+      assertEquals(d, 8.0);
+      assertEquals(result, 8.0);
+    
+   }  // teardown
+    
    /*********************************************************
-    * LINEAR INTERPOLATION - coordinate version where (d,r) is in middle
-    *
-    *    |     8,8 * (d1,r1)
-    *    |        /
-    *    |  4,4  * (d,r)
-    *   r|      /
-    *    | 0,0 * (d0,r0)
-    *    +-------------
-    *         d
-    *********************************************************/
+   * LINEAR INTERPOLATION - coordinate version where (d,r) is in middle
+   *
+   *    |     8,8 * (d1,r1)
+   *    |        /
+   *    |  4,4  * (d,r)
+   *   r|      /
+   *    | 0,0 * (d0,r0)
+   *    +-------------
+   *         d
+   *********************************************************/
    void linearInterpolation_coordinatesMiddle()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+      // setup
+      double d1 = 8.0;
+      double r1 = 8.0;
+      double d0 = 0.0;
+      double r0 = 0.0;
+      double d = 4.0;
+      double result;
+    
+      // exercise
+      result = linearInterpolation(d0, r0, d1, r1, d);
+    
+      // verify
+      assertEquals(d1, 8.0);
+      assertEquals(r1, 8.0);
+      assertEquals(d0, 0.0);
+      assertEquals(r0, 0.0);
+      assertEquals(d, 4.0);
+      assertEquals(result, 4.0);
+    
+   }  // teardown
+    
    /*********************************************************
-    * LINEAR INTERPOLATION - coordinate version where (d,r) is near one
-    *
-    *    |     8,8 * (d1,r1)
-    *    |    6,6 * (d,r)
-    *    |       /
-    *   r|      /
-    *    | 0,0 * (d0,r0)
-    *    +-------------
-    *         d
-    *********************************************************/
+   * LINEAR INTERPOLATION - coordinate version where (d,r) is near one
+   *
+   *    |     8,8 * (d1,r1)
+   *    |    6,6 * (d,r)
+   *    |       /
+   *   r|      /
+   *    | 0,0 * (d0,r0)
+   *    +-------------
+   *         d
+   *********************************************************/
    void linearInterpolation_coordinatesTop()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+      // setup
+      double d1 = 8.0;
+      double r1 = 8.0;
+      double d0 = 0.0;
+      double r0 = 0.0;
+      double d = 6.0;
+      double result;
+    
+      // exercise
+      result = linearInterpolation(d0, r0, d1, r1, d);
+    
+      // verify
+      assertEquals(d1, 8.0);
+      assertEquals(r1, 8.0);
+      assertEquals(d0, 0.0);
+      assertEquals(r0, 0.0);
+      assertEquals(d, 6.0);
+      assertEquals(result, 6.0);
+    
+   }  // teardown
+    
    /*********************************************************
-    * LINEAR INTERPOLATION - coordinate version where (d,r) is near one
-    *
-    *    | 1,9 * (d0,r0)
-    *    |      \
-    *    |   3,5 * (d,r)
-    *    |        \
-    *   r|         \
-    *    |      7,-3 * (d0,r0)
-    *    +-------------
-    *         d
-    *********************************************************/
+   * LINEAR INTERPOLATION - coordinate version where (d,r) is near one
+   *
+   *    | 1,9 * (d0,r0)
+   *    |      \
+   *    |   3,5 * (d,r)
+   *    |        \
+   *   r|         \
+   *    |      7,-3 * (d0,r0)
+   *    +-------------
+   *         d
+   *********************************************************/
    void linearInterpolation_coordinatesBackwards()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      double d1 = 1.0;
+      double r1 = 9.0;
+      double d0 = 7.0;
+      double r0 = -3.0;
+      double d = 3.0;
+      double result;
+    
+      // exercise
+      result = linearInterpolation(d0, r0, d1, r1, d);
+    
+      // verify
+      assertEquals(d1, 1.0);
+      assertEquals(r1, 9.0);
+      assertEquals(d0, 7.0);
+      assertEquals(r0, -3.0);
+      assertEquals(d, 3.0);
+      assertEquals(result, 5.0);
+    
+   }  // teardown
 
 
    /*****************************************************************
@@ -743,9 +830,21 @@ private:
     *       d
     *********************************************************/
    void linearInterpolation_mappingTwo()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   {  // setup
+      const Mapping mapping[] =
+      { // d    r
+         {1.0, 2.0},   // mapping[0]
+         {3.0, 3.0},   // mapping[1]
+         {7.0, 5.0},   // mapping[2]
+         {8.0, 6.5}    // mapping[3]
+      };
+      double d = 7.0;
+      double r = -999.999;  // output
+      // exercise
+      r = linearInterpolation(mapping, 4 /*numMapping*/, d);
+      // verify
+      assertEquals(r, 5.0);
+   }  // teardown
 
 
    /*********************************************************
@@ -763,9 +862,21 @@ private:
     *       d
     *********************************************************/
    void linearInterpolation_mappingMid01()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   {  // setup
+      const Mapping mapping[] =
+      { // d    r
+         {1.0, 2.0},   // mapping[0]
+         {3.0, 3.0},   // mapping[1]
+         {7.0, 5.0},   // mapping[2]
+         {8.0, 6.5}    // mapping[3]
+      };
+      double d = 2.0;
+      double r = -999.999;  // output
+      // exercise
+      r = linearInterpolation(mapping, 4 /*numMapping*/, d);
+      // verify
+      assertEquals(r, 2.5);
+   }  // teardown
 
 
    /*********************************************************
@@ -783,16 +894,28 @@ private:
     *       d
     *********************************************************/
    void linearInterpolation_mappingTop01()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   {  // setup
+      const Mapping mapping[] =
+      { // d    r
+         {1.0, 2.0},   // mapping[0]
+         {3.0, 3.0},   // mapping[1]
+         {7.0, 5.0},   // mapping[2]
+         {8.0, 6.5}    // mapping[3]
+      };
+      double d = 2.8;
+      double r = -999.999;  // output
+      // exercise
+      r = linearInterpolation(mapping, 4 /*numMapping*/, d);
+      // verify
+      assertEquals(r, 2.9);
+   }  // teardown
 
 
    /*********************************************************
     * LINEAR INTERPOLATION - mapping closer to [2] than [3]
     *
     *    |        8,6.5 * mapping[3]
-    *    |     7.3,5.5 * (d,r)
+    *    |     7.3,5.45 * (d,r)
     *    |      7,5   * mapping[2]
     *    |          /
     *    |       /
@@ -803,9 +926,24 @@ private:
     *       d
     *********************************************************/
    void linearInterpolation_mappinglower23()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   {  
+      tolerance = 0.001;
+      
+      // setup
+      const Mapping mapping[] =
+      { // d    r
+         {1.0, 2.0},   // mapping[0]
+         {3.0, 3.0},   // mapping[1]
+         {7.0, 5.0},   // mapping[2]
+         {8.0, 6.5}    // mapping[3]
+      };
+      double d = 7.3000000000000001;
+      double r = -999.999;  // output
+      // exercise
+      r = linearInterpolation(mapping, 4 /*numMapping*/, d);
+      // verify
+      assertEquals(r, 5.45);
+   }  // teardown
 
 
    /*********************************************************
@@ -825,8 +963,23 @@ private:
     *********************************************************/
    void linearInterpolation_mappingSmall()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      tolerance = 0.001;
+      
+      // setup
+      const Mapping mapping[] =
+      { // d    r
+         {1.0, 2.0},   // mapping[0]
+         {3.0, 3.0},   // mapping[1]
+         {7.0, 5.0},   // mapping[2]
+         {8.0, 6.5}    // mapping[3]
+      };
+      double d = 0.0;
+      double r = -999.999;  // output
+      // exercise
+      r = linearInterpolation(mapping, 4 /*numMapping*/, d);
+      // verify
+      assertEquals(r, 2.0);
+   }  // teardown
 
 
    /*********************************************************
@@ -846,8 +999,23 @@ private:
     *********************************************************/
    void linearInterpolation_mappingLarge()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // tolerance = 0.001;
+      
+      // setup
+      const Mapping mapping[] =
+      { // d    r
+         {1.0, 2.0},   // mapping[0]
+         {3.0, 3.0},   // mapping[1]
+         {7.0, 5.0},   // mapping[2]
+         {8.0, 6.5}    // mapping[3]
+      };
+      double d = 50.0;
+      double r = -999.999;  // output
+      // exercise
+      r = linearInterpolation(mapping, 4 /*numMapping*/, d);
+      // verify
+      assertEquals(r, 6.5);
+   }  // teardown
 
 
    /*****************************************************************
@@ -866,8 +1034,17 @@ private:
      ********************************************************/
    void gravityFromAltitude_0()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      double altitude = 0.0;
+      double gravity;
+      
+      // exercise
+      gravity = gravityFromAltitude(altitude);
+      
+      // verify
+      assertEquals(gravity, 9.807);
+      assertEquals(altitude, 0.0);
+   } // teardown
 
 
     /*******************************************************
@@ -877,39 +1054,73 @@ private:
      ********************************************************/
    void gravityFromAltitude_10000()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      double altitude = 10000.0;
+      double gravity;
+      
+      // exercise
+      gravity = gravityFromAltitude(altitude);
+      
+      // verify
+      assertEquals(gravity, 9.776);
+      assertEquals(altitude, 10000.0);
+   } // teardown
 
     /*******************************************************
      * GRAVITY FROM ALTITUDE - at the high range, 80,000m
      * input:  altitude=80,000m
-     * output: gravity=9.564
+     * output: gravity=9.730 (9.564)
      ********************************************************/
    void gravityFromAltitude_80000()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      double altitude = 80000.0;
+      double gravity;
+      
+      // exercise
+      gravity = gravityFromAltitude(altitude);
+      
+      // verify
+      assertEquals(gravity, 9.730);
+      assertEquals(altitude, 80000.0);
+   } // teardown
 
     /*******************************************************
      * GRAVITY FROM ALTITUDE - exactly between two values, 5,5000m
      * input:  altitude=5,5000m
-     * output: gravity=9.795
+     * output: gravity=9.730 (9.7895)
      ********************************************************/
-   void gravityFromAltitude_5500()
+   void gravityFromAltitude_55000()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+      // setup
+      double altitude = 55000.0;
+      double gravity;
+      
+      // exercise
+      gravity = gravityFromAltitude(altitude);
+      
+      // verify
+      assertEquals(gravity, 9.730);
+      assertEquals(altitude, 55000.0);
+   } // teardown
     /*******************************************************
      * GRAVITY FROM ALTITUDE - one-third between two values, 43,333.3m
      * input:  altitude=43,333m
-     * output: gravity=9.795
+     * output: gravity=9.730 (9.674)
      ********************************************************/
    void gravityFromAltitude_43333()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+      // setup
+      double altitude = 43333.0;
+      double gravity;
+      
+      // exercise
+      gravity = gravityFromAltitude(altitude);
+      
+      // verify
+      assertEquals(gravity, 9.730);
+      assertEquals(altitude, 43333.0);
+   } // teardown
     /*******************************************************
      * GRAVITY FROM ALTITUDE - two-third between two values, 3,666.6m
      * input:  altitude=3,666.6m
@@ -917,13 +1128,22 @@ private:
      ********************************************************/
    void gravityFromAltitude_3666()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      double altitude = 3666.6;
+      double gravity;
+      
+      // exercise
+      gravity = gravityFromAltitude(altitude);
+      
+      // verify
+      assertEquals(gravity, 9.795);
+      assertEquals(altitude, 3666.6);
+   } // teardown
 
     /*******************************************************
      * GRAVITY FROM ALTITUDE - elevation of Mt Everest, 8,848.86m
      * input:  altitude=8,848.86m
-     * output: gravity=9.795
+     * output: gravity=9.77945
      ********************************************************/
    void gravityFromAltitude_8848()
    {  // setup
@@ -1035,9 +1255,15 @@ private:
      * output: 340m/s
      ********************************************************/
    void speedSoundFromAltitude_0()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   {  // setup
+      double altitude = 0.0;
+      double speed = -99.99;
+      // exercise
+      speed = speedSoundFromAltitude(altitude);
+      // verify
+      assertEquals(speed, 340.0);
+      assertEquals(altitude, 0.0);
+   }  // teardown
 
     /*******************************************************
      * SPEED OF SOUND FROM ALTITUDE : 10,000m
@@ -1045,19 +1271,31 @@ private:
      * output: 299m/s
      ********************************************************/
    void speedSoundFromAltitude_10000()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+   {  // setup
+      double altitude = 10000.0;
+      double speed = -99.99;
+      // exercise
+      speed = speedSoundFromAltitude(altitude);
+      // verify
+      assertEquals(speed, 299.0);
+      assertEquals(altitude, 10000);
+   }  // teardown
+   
     /*******************************************************
-     * SPEED OF SOUND FROM ALTITUDE : 80,000m
-     * input:  altitude=80,000m
+     * SPEED OF SOUND FROM ALTITUDE : 35142m
+     * input:  altitude=35,142m
      * output: 269m/s
      ********************************************************/
-   void speedSoundFromAltitude_80000()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   void speedSoundFromAltitude_35142()
+   {  // setup
+      double altitude = 35142.0;
+      double speed = -99.99;
+      // exercise
+      speed = speedSoundFromAltitude(altitude);
+      // verify
+      assertEquals(speed, 314.770);
+      assertEquals(altitude, 35142.0);
+   }  // teardown
 
     /*******************************************************
      * SPEED OF SOUND FROM ALTITUDE : 5,500m
@@ -1065,29 +1303,47 @@ private:
      * output: 318.0m/s
      ********************************************************/
    void speedSoundFromAltitude_5500()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   {  // setup
+      double altitude = 5500.0;
+      double speed = -99.99;
+      // exercise
+      speed = speedSoundFromAltitude(altitude);
+      // verify
+      assertEquals(speed, 318.0);
+      assertEquals(altitude, 5500);
+   }  // teardown
 
     /*******************************************************
-     * SPEED OF SOUND FROM ALTITUDE : 43,333m
-     * input:  altitude=43,333m
+     * SPEED OF SOUND FROM ALTITUDE : 13,333m
+     * input:  altitude=13,333m
      * output: 328.3m/s
      ********************************************************/
-   void speedSoundFromAltitude_43333()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   void speedSoundFromAltitude_13333()
+   {  // setup
+      double altitude = 13333.0;
+      double speed = -99.99;
+      // exercise
+      speed = speedSoundFromAltitude(altitude);
+      // verify
+      assertEquals(speed, 296.333);
+      assertEquals(altitude, 13333.0);
+   }  // teardown
 
     /*******************************************************
      * SPEED OF SOUND FROM ALTITUDE : 3,666m
      * input:  altitude=3,666m
-     * output: 325.3m/s
+     * output: 325.336m/s
      ********************************************************/
    void speedSoundFromAltitude_3666()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+   {  // setup
+      double altitude = 3666.0;
+      double speed = -99.99;
+      // exercise
+      speed = speedSoundFromAltitude(altitude);
+      // verify
+      assertEquals(speed, 325.336);
+      assertEquals(altitude, 3666.0);
+   }  // teardown
 
     /*******************************************************
      * SPEED OF SOUND FROM ALTITUDE : on top of Mount Everest
@@ -1102,6 +1358,7 @@ private:
       speed = speedSoundFromAltitude(altitude);
       // verify
       assertEquals(speed, 303.76);
+      assertEquals(altitude, 8848.0);
    }  // teardown
 
    /*****************************************************************
