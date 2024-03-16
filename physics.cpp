@@ -83,7 +83,31 @@ double gravityFromAltitude(double altitude)
  *********************************************************/
 double densityFromAltitude(double altitude)
 {
-   return -99.9;
+   // Define the tabular data
+   Mapping altitudeDensityData[] = {
+       {0, 1.2250000},
+       {1000, 1.1120000},
+       {2000, 1.0070000},
+       {3000, 0.9093000},
+       {4000, 0.8194000},
+       {5000, 0.7364000},
+       {6000, 0.6601000},
+       {7000, 0.5900000},
+       {8000, 0.5258000},
+       {9000, 0.4671000},
+       {10000, 0.4135000},
+       {15000, 0.1948000},
+       {20000, 0.0889100},
+       {25000, 0.0400800},
+       {30000, 0.0184100},
+       {40000, 0.0039960},
+       {50000, 0.0010270},
+       {60000, 0.0003097},
+       {70000, 0.0000828},
+       {80000, 0.0000185}
+   };
+ 
+   return linearInterpolation(altitudeDensityData, 19, altitude);
 }
 
 /*********************************************************
@@ -116,10 +140,30 @@ double speedSoundFromAltitude(double altitude)
 
 
 /*********************************************************
- * DRAG FROM MACH
- * Determine the drag coefficient for a M795 shell given speed in Mach
- *********************************************************/
+* DRAG FROM MACH
+* Determine the drag coefficient for a M795 shell given speed in Mach
+*********************************************************/
 double dragFromMach(double speedMach)
 {
-   return -99.9;
+   Mapping machDragData[] = {
+ 
+    {0.300, 0.1629},
+    {0.500, 0.1659},
+    {0.700, 0.2031},
+    {0.890, 0.2597},
+    {0.920, 0.3010},
+    {0.960, 0.3287},
+    {0.980, 0.4002},
+    {1.000, 0.4258},
+    {1.020, 0.4335},
+    {1.060, 0.4483},
+    {1.240, 0.4064},
+    {1.530, 0.3663},
+    {1.990, 0.2897},
+    {2.870, 0.2297},
+    {2.890, 0.2306},
+    {5.000, 0.2656}
+ 
+   };
+   return linearInterpolation(machDragData, 16, speedMach);
 }
