@@ -12,10 +12,14 @@
 
 using namespace std;
  
- /*********************************************************
+/********************************************************
  * LINEAR INTERPOLATION
- * From a list of domains and ranges, linear interpolate
- *********************************************************/
+ * return the corespinding range from a given domain if the domain exists
+ * other wise find two closest points below and above the given domain
+ *    mapping        : the known data table
+ *    numMapping : number of pairs of domain and range in mapping
+ *    domain          : the given domain to find the coresponding range
+ *************************************************************************************/
 double linearInterpolation(const Mapping mapping[], int numMapping, double domain)
 {
    int lowerIndex = -1;
@@ -29,6 +33,7 @@ double linearInterpolation(const Mapping mapping[], int numMapping, double domai
    for (int i = 0; i < numMapping; ++i)
    {
       if (mapping[i].domain == domain) {
+         
          // If the domain exactly matches one of the mappings, return the corresponding range
          return mapping[i].range;
       }
@@ -57,7 +62,7 @@ double gravityFromAltitude(double altitude)
 {
    
    // Initiate the corelating data that is already known
-   Mapping gravityInAltitude[] = {
+   const Mapping gravityInAltitude[] = {
       {0.0    , 9.807},
       {1000.0 , 9.804},
       {2000.0 , 9.801},
@@ -84,7 +89,7 @@ double gravityFromAltitude(double altitude)
 double densityFromAltitude(double altitude)
 {
    // Define the tabular data
-   Mapping altitudeDensityData[] = {
+   const Mapping altitudeDensityData[] = {
        {0, 1.2250000},
        {1000, 1.1120000},
        {2000, 1.0070000},
@@ -116,7 +121,7 @@ double densityFromAltitude(double altitude)
  ********************************************************/
 double speedSoundFromAltitude(double altitude)
 {
-   Mapping speedSoundAltitude[] = {
+   const Mapping speedSoundAltitude[] = {
       {0, 340},
       {1000, 336},
       {2000, 332},
@@ -145,7 +150,7 @@ double speedSoundFromAltitude(double altitude)
 *********************************************************/
 double dragFromMach(double speedMach)
 {
-   Mapping machDragData[] = {
+   const Mapping machDragData[] = {
  
     {0.300, 0.1629},
     {0.500, 0.1659},

@@ -42,7 +42,7 @@ inline double forceFromDrag(double density, double drag,
 /**********************************************************
  * ACCELERATION FROM FORCE
  * How much acceleration can we expect from a given force
- *    force        : N
+ *    force         : N
  *    mass         : kg
  *    acceleration : m / s^2
  * Equation:
