@@ -10,9 +10,9 @@
 #include "test.h"
 #include "testAngle.h"
 #include "testPosition.h"
+#include "testPhysics.h"
 #include "testVelocity.h"
 #include "testAcceleration.h"
-#include "testPhysics.h"
 
 // This code, and the similar IF_DEF in testRunner(), is to ensure that
 // you can see the text output (called the console window) and OpenGL's
@@ -45,4 +45,7 @@ void testRunner()
    TestPosition().run();
    TestVelocity().run();
    TestPhysics().run();
+//   TestGround().run();
+//   TestHowitzer().run();
+//   TestProjectile().run();
 }

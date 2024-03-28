@@ -29,6 +29,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D17CB3A2BB62E6D004DD170 /* howitzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = howitzer.h; sourceTree = "<group>"; };
+		5D17CB3B2BB62E6D004DD170 /* testHowitzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testHowitzer.h; sourceTree = "<group>"; };
+		5D17CB3C2BB62E6D004DD170 /* projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = projectile.cpp; sourceTree = "<group>"; };
+		5D17CB3D2BB62E6D004DD170 /* projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projectile.h; sourceTree = "<group>"; };
+		5D17CB3E2BB62E6D004DD170 /* testProjectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testProjectile.h; sourceTree = "<group>"; };
 		5DACBFB32BA3BF2A00133D59 /* physics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = physics.h; sourceTree = "<group>"; };
 		5DACBFB42BA3BF2A00133D59 /* physics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = physics.cpp; sourceTree = "<group>"; };
 		5DACBFB62BA3BF7B00133D59 /* testPhysics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testPhysics.h; sourceTree = "<group>"; };
@@ -75,6 +80,11 @@
 				C1A1B9B92B21093A00E5DEAA /* position.cpp */,
 				C1A1B9B32B21093A00E5DEAA /* position.h */,
 				C1A1B9C02B21093A00E5DEAA /* test.cpp */,
+				5D17CB3A2BB62E6D004DD170 /* howitzer.h */,
+				5D17CB3C2BB62E6D004DD170 /* projectile.cpp */,
+				5D17CB3D2BB62E6D004DD170 /* projectile.h */,
+				5D17CB3B2BB62E6D004DD170 /* testHowitzer.h */,
+				5D17CB3E2BB62E6D004DD170 /* testProjectile.h */,
 				5DACBFB62BA3BF7B00133D59 /* testPhysics.h */,
 				C1A1B9B12B21093900E5DEAA /* test.h */,
 				C1A1B9BE2B21093A00E5DEAA /* testAcceleration.h */,
