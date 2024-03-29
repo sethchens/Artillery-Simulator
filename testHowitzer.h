@@ -31,9 +31,9 @@ public:
       getElevation_up();
       getElevation_right();
       getElevation_left();
-//
-//      // Ticket 2: Setters
-//      generatePosition_small();
+
+      // Ticket 2: Setters
+      generatePosition_small();
 //      generatePosition_large();
 //      raise_rightDown();
 //      raise_rightUp();
@@ -236,8 +236,19 @@ private:
      *********************************************/
    void generatePosition_small()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      Howitzer h;
+      Position p (10.0, 10.0);
+      
+      // exercise
+      h.generatePosition(p);
+      
+      // verify
+      assertEquals(p.x, 10.0);
+      assertEquals(p.y, 10.0);
+      assertUnit(0.0 <= h.position.x <= 9.0);
+      assertUnit(0.0 <= h.position.y <= 9.0);
+   } // teardown
 
     /*********************************************
     * name:    GENERATE POSITION large board

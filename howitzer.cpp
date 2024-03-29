@@ -5,7 +5,7 @@
 //  Created by Seth on 3/28/24.
 //
 
-#include <howitzer.h>
+#include "howitzer.h"
 
 /***********************************************
  * HOWITZER :: GENERATE POSITION
@@ -14,7 +14,7 @@
 void Howitzer::generatePosition(const Position& posUpperRight)
 {
    double xPixels = random(posUpperRight.getPixelsX() * 0.1,
-      posUpperRight.getPixelsX() * 0.9);
+   posUpperRight.getPixelsX() * 0.9);
    position.setPixelsX(xPixels);
    position.setPixelsY(0);
 }
@@ -28,4 +28,10 @@ void Howitzer::raise(double radian)
    elevation.add(elevation.isRight() ? -radian : radian);
 }
 
+void Howitzer::draw(ogstream& gout, double flightTime) const
+{
+   gout.drawHowitzer(position,
+      elevation.getRadians(),
+      flightTime);
+}
 

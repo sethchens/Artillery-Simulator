@@ -15,6 +15,7 @@
 		5DE4EEA72BB639B7009AD0CD /* simulation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4EE9C2BB63995009AD0CD /* simulation.cpp */; };
 		5DE4EEA82BB639B7009AD0CD /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4EE9A2BB63995009AD0CD /* uiDraw.cpp */; };
 		5DE4EEA92BB639B7009AD0CD /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4EEA32BB63995009AD0CD /* uiInteract.cpp */; };
+		5DE4EEAC2BB64AD7009AD0CD /* howitzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4EEAB2BB64075009AD0CD /* howitzer.cpp */; };
 		C1A1B9C12B21093A00E5DEAA /* velocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A1B9B62B21093A00E5DEAA /* velocity.cpp */; };
 		C1A1B9C22B21093A00E5DEAA /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A1B9B72B21093A00E5DEAA /* acceleration.cpp */; };
 		C1A1B9C32B21093A00E5DEAA /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A1B9B92B21093A00E5DEAA /* position.cpp */; };
@@ -204,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE4EEAC2BB64AD7009AD0CD /* howitzer.cpp in Sources */,
 				5DE4EEA62BB639B7009AD0CD /* projectile.cpp in Sources */,
 				5DE4EEA72BB639B7009AD0CD /* simulation.cpp in Sources */,
 				5DE4EEA82BB639B7009AD0CD /* uiDraw.cpp in Sources */,
