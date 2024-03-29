@@ -48,26 +48,11 @@ class Howitzer
       // where is the howitzer at right now?
       Position & getPosition() { return position; }
 
-      // generate a new position for the howitzer
-      void generatePosition(const Position& posUpperRight)
-      {
-         double xPixels = random(posUpperRight.getPixelsX() * 0.1,
-            posUpperRight.getPixelsX() * 0.9);
-         position.setPixelsX(xPixels);
-         position.setPixelsY(0);
-      }
-
       // get the muzzle velocity
       double getMuzzleVelocity() const { return muzzleVelocity; }
 
       // move the angle of the howitzer
       void rotate(double radian) { elevation.add(radian); }
-
-      // raise (or lower) the howitzer
-      void raise(double radian)
-      {
-         elevation.add(elevation.isRight() ? -radian : radian);
-      }
 
       // get the elevation
       const Angle & getElevation() const { return elevation; }

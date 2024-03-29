@@ -36,7 +36,7 @@ public:
    // Constructors
    Angle()                  : radians(0.0)                      {}
    Angle(const Angle& rhs)  : radians(rhs.getRadians())         {}
-   Angle(double degrees)    : radians(0.0)                      {}
+   Angle(double degrees)    : radians(degrees * M_PI / 180.0)   {}
 
    // Getters
    double getDegrees() const { return radians * (180.0 / M_PI); }

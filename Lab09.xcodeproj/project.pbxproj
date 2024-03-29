@@ -55,6 +55,7 @@
 		5DE4EEA22BB63995009AD0CD /* ground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ground.h; sourceTree = "<group>"; };
 		5DE4EEA32BB63995009AD0CD /* uiInteract.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = uiInteract.cpp; sourceTree = "<group>"; };
 		5DE4EEA42BB63995009AD0CD /* uiInteract.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = uiInteract.h; sourceTree = "<group>"; };
+		5DE4EEAB2BB64075009AD0CD /* howitzer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = howitzer.cpp; sourceTree = "<group>"; };
 		C1A1B9B12B21093900E5DEAA /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		C1A1B9B22B21093A00E5DEAA /* testAngle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAngle.h; sourceTree = "<group>"; };
 		C1A1B9B32B21093A00E5DEAA /* position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = position.h; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				5DE4EE972BB63995009AD0CD /* ground.cpp */,
 				5DE4EEA22BB63995009AD0CD /* ground.h */,
 				5DE4EE9F2BB63995009AD0CD /* howitzer.h */,
+				5DE4EEAB2BB64075009AD0CD /* howitzer.cpp */,
 				5DE4EE9B2BB63995009AD0CD /* projectile.cpp */,
 				5DE4EE992BB63995009AD0CD /* projectile.h */,
 				5DE4EE9C2BB63995009AD0CD /* simulation.cpp */,
